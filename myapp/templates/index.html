@@ -76,7 +76,7 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     {% for one in projects %}
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-4 col-sm-6" style="margin-bottom: 10px;">
                         <a class="portfolio-box" href="{{one.image.url}}" title="{{one.title}}">
                             <img class="img-fluid" src="{{one.image.url}}" alt="..."  style="height: 300px; width:650px; "/>
                             <div class="portfolio-box-caption">
@@ -168,26 +168,26 @@
                             {% csrf_token %}
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" type="text" name="title" placeholder="Enter your name..." data-sb-validations="required" required />
                                 <label for="name">Project Title</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="" type="text" placeholder="Django" data-sb-validations="required,email" />
+                                <input class="form-control" id="" name="tech"required type="text" placeholder="Django" data-sb-validations="required,email" />
                                 <label for="email">Technology Used</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="file" placeholder="" data-sb-validations="required" />
+                                <input class="form-control" id="" name="image" type="file" required placeholder="" data-sb-validations="required" />
                                 <label for="phone">Picture</label>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <textarea class="form-control" id="message" name="des" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Description</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
@@ -195,7 +195,7 @@
                             <!---->
                             <!-- This is what your users will see when the form-->
                             <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
+                            <div class="d-none" id="submitSuccessMessage" >
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
                                     To activate this form, sign up at
@@ -209,7 +209,7 @@
                             <!-- an error submitting the form-->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button></div>
                         </form>
                     </div>
                 </div>
