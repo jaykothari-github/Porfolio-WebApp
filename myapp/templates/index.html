@@ -84,21 +84,22 @@
                         <a class="portfolio-box" href="{{one.image.url}}" title="{{one.title}}">
                             <img class="img-fluid" src="{{one.image.url}}" alt="..."  style="height: 300px; width:650px; "/>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">{{one.tech}}</div>
                                 <div class="project-name">{{one.title}}</div>
+                                <div class="project-category text-white-50">{{one.tech}}</div>
+                                <div class="project-category text-white-50">{{one.created}}</div>
                             </div>
                         </a>
                         <div style="align-items: center; text-align: center;">
 
-                            <button class="btn btn-primary" style="width: 100%;">Read more</button>
+                            <a href="{% url 'read-project' one.id %}"><button class="btn btn-primary" style="width: 100%;">Read more</button></a>
                             <div class="row">
                                 <div class="col-6">
 
-                                    <button class="btn btn-info" style="width: 100%;"><i class="fa fa-edit"></i> Update</button>
+                                    <a href="{% url 'update-project' one.id %}"><button class="btn btn-info" style="width: 100%;"><i class="fa fa-edit"></i> Update</button></a>
                                 </div>
                                 <div class="col-6">
 
-                                    <a href=""><button class="btn btn-danger" style="width: 100%;"><i class="fa fa-trash"></i> Delete</button></a>
+                                    <a href="{% url 'delete-project' one.id %}"><button class="btn btn-danger" style="width: 100%;"><i class="fa fa-trash"></i> Delete</button></a>
                                 </div>
                             </div>
                         </div>

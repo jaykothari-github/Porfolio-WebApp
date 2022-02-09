@@ -20,3 +20,18 @@ def add_project(request):
         return render(request,'index.html',{'projects':projects,'msg':'Project is Uploaded'})
     projects = Project.objects.all()[::-1]
     return render(request,'index.html',{'projects':projects})
+
+def delete_project(request,pk):
+    try:
+        project = Project.objects.get(id=pk)
+        project.delete()
+    except:
+        pass
+    projects = Project.objects.all()[::-1]
+    return render(request,'index.html',{'projects':projects})
+
+def read_project(request,pk):
+    pass
+
+def update_project(request,pk):
+    pass
