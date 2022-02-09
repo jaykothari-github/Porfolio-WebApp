@@ -31,7 +31,9 @@ def delete_project(request,pk):
     return render(request,'index.html',{'projects':projects})
 
 def read_project(request,pk):
-    pass
+    project = Project.objects.get(id=pk)
+    return render(request,'read-project.html',{'project':project})
 
 def update_project(request,pk):
-    pass
+    project = Project.objects.get(id=pk)
+    return
