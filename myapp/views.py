@@ -28,7 +28,7 @@ def delete_project(request,pk):
     except:
         pass
     projects = Project.objects.all()[::-1]
-    return render(request,'index.html',{'projects':projects})
+    return render(request,'index.html',{'projects':projects,'msg':'Project Deleted'})
 
 def read_project(request,pk):
     project = Project.objects.get(id=pk)
@@ -36,4 +36,15 @@ def read_project(request,pk):
 
 def update_project(request,pk):
     project = Project.objects.get(id=pk)
-    return
+    if request.method == 'POST':
+        project.title = request.POST['title']
+        project.des = request.POST['des']
+        project.tech = request.POST['tech']
+        if 'image' in request.FILES:
+            project.image = request.FILES['image']
+        project.save()
+        projects = Project.objects.all()[::-1]
+        return render(request,'index.html',{'projects':projects,'msg':'Project Updated'})
+    return render(request,'update-project.html',{'project':project})
+
+    
