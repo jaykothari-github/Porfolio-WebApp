@@ -17,4 +17,6 @@ def add_project(request):
             image = request.FILES['image'] if 'image' in request.FILES else None
         )
         projects = Project.objects.all()[::-1]
-        return render(request,'index.html',{'projects':projects})
+        return render(request,'index.html',{'projects':projects,'msg':'Project is Uploaded'})
+    projects = Project.objects.all()[::-1]
+    return render(request,'index.html',{'projects':projects})
